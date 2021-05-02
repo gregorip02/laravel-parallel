@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Stubleapp\Parallel\Tests;
 
 class ExampleTest extends TestCase
 {
