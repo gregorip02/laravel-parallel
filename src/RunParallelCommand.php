@@ -3,8 +3,8 @@
 namespace Stubleapp\Parallel;
 
 use Illuminate\Console\Command;
-use React\EventLoop\Factory;
 use React\ChildProcess\Process;
+use React\EventLoop\Factory;
 
 final class RunParallelCommand extends Command
 {

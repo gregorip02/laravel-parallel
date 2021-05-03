@@ -12,7 +12,8 @@ class Task implements TaskHandlerContract
         private string $command,
         private ?string $name = null,
         private ?string $tag = null
-    ) {}
+    ) {
+    }
 
     /**
      * Get the command name.

@@ -29,7 +29,7 @@ class LaravelParallelServiceProvider extends ServiceProvider
     {
         if ($this->runningInConsole()) {
             $this->commands([
-                RunParallelCommand::class
+                RunParallelCommand::class,
             ]);
         }
     }
