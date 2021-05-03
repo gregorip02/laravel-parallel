@@ -4,13 +4,10 @@ namespace Stubleapp\Parallel;
 
 use Closure;
 use Exception;
-use Illuminate\Console\Concerns\InteractsWithIO;
 use React\ChildProcess\Process;
 
 trait TaskHandler
 {
-    use InteractsWithIO;
-
     public function format(string $message, Process $process, string $syntax = 'standard'): string
     {
         $name = $this->name();
