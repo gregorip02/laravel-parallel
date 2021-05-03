@@ -17,8 +17,9 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/contracts": "^8.37"
+        "php": "^8.0",
+        "illuminate/contracts": "^8.37",
+        "react/child-process": "^0.6.2"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
