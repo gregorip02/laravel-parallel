@@ -31,7 +31,7 @@ final class RunParallelCommand extends Command
                 name: $task['name'] ?? null,
                 command: $task['command'],
             );
-        }, $this->laravel->config['parallel']['tasks']);
+        }, config('parallel.tasks'));
 
         foreach ($tasks as $task) {
             $process = new Process($task->command());

@@ -8,7 +8,7 @@ use React\ChildProcess\Process;
 
 trait TaskHandler
 {
-    public function format(string $message, Process $process, string $syntax = 'standard'): string
+    public function format(string $message, Process $process): string
     {
         $name = $this->name();
 
