@@ -12,7 +12,7 @@ composer require stubleapp/laravel-parallel
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Stubleapp\Parallel\LaravelParallelServiceProvider" --tag="laravel-parallel-config"
+php artisan vendor:publish --provider="Stubleapp\Parallel\LaravelParallelServiceProvider" --tag="parallel"
 ```
 
 This is the contents of the published config file:

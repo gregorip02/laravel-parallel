@@ -33,7 +33,6 @@ final class RunParallelCommand extends Command
             );
         }, $this->laravel->config['parallel']['tasks']);
 
-        /** @var \Stubleapp\Parallel\Task $task */
         foreach ($tasks as $task) {
             $process = new Process($task->command());
             $process->start($loop);
