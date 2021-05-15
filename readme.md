@@ -1,6 +1,6 @@
 # Laravel parallel
 
-Run artisan commands in parallel using ReactPHP.
+Run parallel commands in your Laravel app using ReactPHP ChildProcess.
 
 ## Installation
 
