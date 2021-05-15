@@ -10,9 +10,12 @@ You can install the package via composer:
 composer require stubleapp/laravel-parallel
 ```
 
-You can publish the config file with:
+Publish the config file:
+
 ```bash
-php artisan vendor:publish --provider="Stubleapp\Parallel\LaravelParallelServiceProvider" --tag="parallel"
+php artisan vendor:publish \
+    --provider="Stubleapp\Parallel\LaravelParallelServiceProvider" \
+    --tag="parallel"
 ```
 
 This is the contents of `config/parallel.php`:
