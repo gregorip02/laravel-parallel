@@ -11,7 +11,7 @@ return $fixer->setFinder($finder)->setRules([
     'array_syntax' => ['syntax' => 'short'],
     'array_indentation' => true,
     'trim_array_spaces' => true,
-    'ordered_imports' => ['sortAlgorithm' => 'alpha'],
+    'ordered_imports' => ['sort_algorithm' => 'alpha'],
     'no_unused_imports' => true,
     'not_operator_with_successor_space' => true,
     'phpdoc_scalar' => true,
