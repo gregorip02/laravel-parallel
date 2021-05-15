@@ -13,7 +13,10 @@ class Task
 {
     private Process $process;
 
-    private const DEFAULT_FORMAT = 'standard';
+    /**
+     * Default output format.
+     */
+    private const DEFAULT_OUTPUT_FORMAT = 'standard';
 
     /**
      * Class instance.
@@ -22,7 +25,7 @@ class Task
         private string $command,
         private string $name = '',
         private array $tags = [],
-        private string | TaskLoggerContract $format = self::DEFAULT_FORMAT
+        private string | TaskLoggerContract $format = self::DEFAULT_OUTPUT_FORMAT
     ) {
     }
 
@@ -117,7 +120,7 @@ class Task
      */
     public function setDefaultFormat(string $format): void
     {
-        if ($format !== self::DEFAULT_FORMAT) {
+        if ($format !== self::DEFAULT_OUTPUT_FORMAT) {
             $this->format = $format;
             $this->logger();
         }
