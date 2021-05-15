@@ -1,0 +1,29 @@
+<?php
+
+namespace Stubleapp\Parallel\Outputs;
+
+use Stubleapp\Parallel\Contracts\TaskLoggerContract;
+use Stubleapp\Parallel\Task;
+
+class JsonOutput implements TaskLoggerContract
+{
+    /**
+     * Format the output data as string.
+     */
+    public function format(Task $task, string|array $data): string
+    {
+        return json_encode($this->native(...func_get_args()));
+    }
+
+    /**
+     * Get the output in "native" format.
+     */
+    protected function native(Task $task, string|array $data): array
+    {
+        return [
+            'name' => $task->name(),
+            'pid' => $task->process()->getPid(),
+            'message' => json_encode($data)
+        ];
+    }
+}

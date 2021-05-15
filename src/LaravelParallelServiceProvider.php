@@ -3,6 +3,7 @@
 namespace Stubleapp\Parallel;
 
 use Illuminate\Support\ServiceProvider;
+use Stubleapp\Parallel\Commands\RunParallelCommand;
 
 class LaravelParallelServiceProvider extends ServiceProvider
 {
