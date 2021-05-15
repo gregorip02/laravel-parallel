@@ -10,7 +10,7 @@ class JsonOutput implements TaskLoggerContract
     /**
      * Format the output data as string.
      */
-    public function format(Task $task, string|array $message): string
+    public function format(Task $task, string | array $message): string
     {
         return json_encode($this->native(...func_get_args()));
     }
@@ -18,7 +18,7 @@ class JsonOutput implements TaskLoggerContract
     /**
      * Get the output in "native" format.
      */
-    protected function native(Task $task, string|array $data): array
+    protected function native(Task $task, string | array $data): array
     {
         return [
             'name' => $task->name(),

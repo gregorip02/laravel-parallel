@@ -4,8 +4,8 @@ namespace Stubleapp\Parallel;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Stubleapp\Parallel\Contracts\TaskLoggerContract;
 use React\ChildProcess\Process;
+use Stubleapp\Parallel\Contracts\TaskLoggerContract;
 use Stubleapp\Parallel\Outputs\JsonOutput;
 use Stubleapp\Parallel\Outputs\StandardOutput;
 
@@ -22,8 +22,9 @@ class Task
         private string $command,
         private string $name = '',
         private array $tags = [],
-        private string|TaskLoggerContract $format = self::DEFAULT_FORMAT
-    ) {}
+        private string | TaskLoggerContract $format = self::DEFAULT_FORMAT
+    ) {
+    }
 
     /**
      * Static class instance from array.
@@ -79,7 +80,7 @@ class Task
         $format = $format ?: 'default';
 
         if (! class_exists($format)) {
-            $format = match($format) {
+            $format = match ($format) {
                 'json' => JsonOutput::class,
                 'standard' => StandardOutput::class,
                 default => StandardOutput::class,
@@ -125,7 +126,7 @@ class Task
     /**
      * Handle task logs.
      */
-    public function write(string|array $message): void
+    public function write(string | array $message): void
     {
         $message = $this->logger()->format($this, $message);
 

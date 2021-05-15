@@ -10,7 +10,7 @@ class StandardOutput implements TaskLoggerContract
     /**
      * Format the output data as string.
      */
-    public function format(Task $task, string|array $message): string
+    public function format(Task $task, string | array $message): string
     {
         return $this->native(...func_get_args());
     }
@@ -18,7 +18,7 @@ class StandardOutput implements TaskLoggerContract
     /**
      * Get the output in "native" format.
      */
-    protected function native(Task $task, string|array $message): string
+    protected function native(Task $task, string | array $message): string
     {
         return sprintf('name: %s, pid: %s, message: %s', ...[
             $task->name(),
