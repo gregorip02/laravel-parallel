@@ -1,5 +1,7 @@
 ## Laravel parallel
 
+[![run-tests](https://github.com/stubleapp/laravel-parallel/actions/workflows/run-tests.yml/badge.svg)](https://github.com/stubleapp/laravel-parallel/actions/workflows/run-tests.yml)
+
 Run parallel commands in your Laravel app using ReactPHP ChildProcess.
 
 ### Installation
