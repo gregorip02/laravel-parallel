@@ -112,7 +112,7 @@ class Task
     /**
      * Get the task process.
      */
-    public function process(): TaskProcessContract
+    public function process(): Process | TaskProcessContract
     {
         return $this->process ?: new NullTaskProcess();
     }
