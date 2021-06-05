@@ -114,7 +114,7 @@ class Task
      */
     public function process(): TaskProcessContract
     {
-        return $this->process ?: new NullTaskProcess;
+        return $this->process ?: new NullTaskProcess();
     }
 
     /**
