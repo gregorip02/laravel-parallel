@@ -5,13 +5,15 @@ namespace Stubleapp\Parallel;
 use Exception;
 use Illuminate\Support\Arr;
 use React\ChildProcess\Process;
+use Stubleapp\Parallel\Concerns\NullTaskProcess;
 use Stubleapp\Parallel\Contracts\TaskLoggerContract;
+use Stubleapp\Parallel\Contracts\TaskProcessContract;
 use Stubleapp\Parallel\Outputs\JsonOutput;
 use Stubleapp\Parallel\Outputs\StandardOutput;
 
 class Task
 {
-    private Process $process;
+    private TaskProcessContract | Process | null $process = null;
 
     /**
      * Default output format.
@@ -34,7 +36,7 @@ class Task
      */
     public static function fromArray(array $arr): self
     {
-        return new Task(...Arr::only($arr, ['command', 'name', 'tags']));
+        return new Task(...Arr::only($arr, ['command', 'name', 'tags', 'format']));
     }
 
     /**
@@ -102,7 +104,7 @@ class Task
     /**
      * Set the task process.
      */
-    public function setProcess(Process $process)
+    public function setProcess(Process $process): void
     {
         $this->process = $process;
     }
@@ -110,9 +112,9 @@ class Task
     /**
      * Get the task process.
      */
-    public function process(): Process
+    public function process(): TaskProcessContract
     {
-        return $this->process;
+        return $this->process ?: new NullTaskProcess;
     }
 
     /**
@@ -131,10 +133,18 @@ class Task
      */
     public function write(string | array $message): void
     {
-        $message = $this->logger()->format($this, $message);
+        $message = $this->formatOutput($message);
 
         // TODO: Implement colors ;)
         print($message);
         print(PHP_EOL);
+    }
+
+    /**
+     * Format the given message with the task logger.
+     */
+    public function formatOutput(string | array $message): string
+    {
+        return $this->logger()->format($this, $message);
     }
 }

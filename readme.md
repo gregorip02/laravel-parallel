@@ -26,7 +26,7 @@ This is the contents of `config/parallel.php`:
 <?php
 
 return [
-    'tags' => [
+    'tasks' => [
         // Here you will put all your tasks
     ],
 ];
