@@ -6,7 +6,7 @@ use Exception;
 use Illuminate\Support\Arr;
 use React\ChildProcess\Process;
 use Stubleapp\Parallel\Concerns\NullTaskProcess;
-use Stubleapp\Parallel\Contracts\TaskLoggerContract;
+use Stubleapp\Parallel\Contracts\TaskOutputContract;
 use Stubleapp\Parallel\Contracts\TaskProcessContract;
 use Stubleapp\Parallel\Outputs\JsonOutput;
 use Stubleapp\Parallel\Outputs\StandardOutput;
@@ -27,7 +27,7 @@ class Task
         private string $command,
         private string $name = '',
         private array $tags = [],
-        private string | TaskLoggerContract $format = self::DEFAULT_OUTPUT_FORMAT
+        private string | TaskOutputContract $format = self::DEFAULT_OUTPUT_FORMAT
     ) {
     }
 
@@ -74,11 +74,11 @@ class Task
     /**
      * Get or create a logger instance.
      */
-    public function logger(): TaskLoggerContract
+    public function logger(): TaskOutputContract
     {
         $format = $this->format;
 
-        if ($format instanceof TaskLoggerContract) {
+        if ($format instanceof TaskOutputContract) {
             return $format;
         }
 
@@ -94,8 +94,8 @@ class Task
 
         $this->format = new $format();
 
-        if (! $this->format instanceof TaskLoggerContract) {
-            throw new Exception(sprintf('The class [%s] does not implements TaskLoggerContract', $format));
+        if (! $this->format instanceof TaskOutputContract) {
+            throw new Exception(sprintf('The class [%s] does not implements TaskOutputContract', $format));
         }
 
         return $this->format;

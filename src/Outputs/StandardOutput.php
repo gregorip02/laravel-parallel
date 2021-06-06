@@ -2,10 +2,10 @@
 
 namespace Stubleapp\Parallel\Outputs;
 
-use Stubleapp\Parallel\Contracts\TaskLoggerContract;
+use Stubleapp\Parallel\Contracts\TaskOutputContract;
 use Stubleapp\Parallel\Task;
 
-class StandardOutput implements TaskLoggerContract
+class StandardOutput implements TaskOutputContract
 {
     /**
      * Format the output data as string.
